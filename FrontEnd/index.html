@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTAccessibility</title>
+</head>
+<body>
+    <!-- dropdown menu #1: Borough -->
+    <form>
+        <label>Select Borough:</label>
+        <select id="NYC">
+            <option value="NULL"> Select... </option>
+            <option value="Brooklyn"> Brooklyn </option>
+            <option value="Queens"> Queens </option>
+            <option value="Manhattan"> Manhattan </option>
+            <option value="Bronx"> Bronx </option>
+            <option value="Staten Island"> Staten Island </option>
+        </select> <br><br>
+
+        <!--- Dropdown menu #2: Station (borough-specific stations will appear when borough is chosen; otherwise all are shown)-->
+
+        <label>Select Station:</label>
+        <select id="Station">
+            <option value="Station NULL">Select Station...</option>
+            <option value="Station 1">Station 1: Brooklyn</option>
+            <option value="Station 2">Station 2: Queens</option>
+            <option value="Station 3">Station 3: Manhattan</option>
+            <option value="Station 4">Station 4: Bronx</option>
+            <option value="Station 5">Station 5: Staten Island</option>
+        </select>
+    </form>
+
+    <!-- User input box (only appears when station is chosen) -->
+        <div id="userInput" style="display:none;">
+            <label for="input"><br>Input your suggestion: </label>
+            <input type='text' id='input' />
+            <input type='button' value='Submit' id='add' />
+
+            <br><br>
+        <table id="table">
+            <tr>
+                <th> Station Name </th>
+                <th> User Comment </th>
+            </tr>
+        </table>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+            }
+        </style>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>
