@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "in",
+      "name": "inputComments",
+      "databaseName": "mtaccessibility project",
+      "collectionName": "user input",
+      "connectionStringSetting": "mtaccessibility_DOCUMENTDB",
+      "partitionKey": "id",
+      "sqlQuery": "select * from c where c.station={station}"
+    }
+  ]
+}
