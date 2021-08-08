@@ -42,9 +42,12 @@ $('#NYC').on('change', function () {
 
 /* Show/Hide input box if station is/isn't selected */
 // https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
-$('#Station').on('change', async function () {
+$('#Station').on('change', createTable)
+
+async function createTable () {
     console.log($("#Station").val())
-    if ($(this).val() != "Station NULL") {
+
+    if ($("#Station").val() != "Station NULL") {
         $("#userInput").show()
     }
     else {
@@ -74,26 +77,24 @@ $('#Station').on('change', async function () {
     var websiteTable = document.getElementById("websiteTable");
     websiteTable.innerHTML = ""; 
     websiteTable.appendChild(table);   
-});
+}
 
 /* Add user input to table that shows Station Name and User Input (not yet connected to Cosmos, does not save input) */
 //https://stackoverflow.com/questions/19995927/adding-html-input-to-table 
 
-document.getElementById("add").onclick = function () {
-    var table = document.getElementById("table");
+document.getElementById("add").onclick = async function () {
+    let resp = await fetch("/api/SaveComment",{
+        method: "POST",
+        body: JSON.stringify({
+            station: $("#Station").val(),
+            comment: $("#input").val()
+        }),
+        headers: {
+            "content-type": "application/json"
+        }
+    }) 
 
-    var row = document.createElement("tr");
-    console.log(row);
-    var td1 = document.createElement("td");
-    var td2 = document.createElement("td");
-
-    td1.innerHTML = $('#Station').val();
-    td2.innerHTML = document.getElementById("input").value;
-
-    row.appendChild(td1);
-    row.appendChild(td2);
-
-    table.appendChild(row);
+    await createTable();
 }
 
 
