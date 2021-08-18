@@ -61,14 +61,23 @@ async function createTable () {
     var table = document.createElement("table");
 
     for (var userInput of data) {
+        var header_row = document.createElement("tr");
         var row = document.createElement("tr");
         console.log(row);
+        var th1 = document.createElement("th");
+        var th2 = document.createElement("th");
+
+        th1.innerHTML = "Station Name";
+        th2.innerHTML = "User Comment";
+
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
 
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
 
+        header_row.appendChild(th1);
+        header_row.appendChild(th2);
         row.appendChild(td1);
         row.appendChild(td2);
 
