@@ -47,7 +47,7 @@ $('#Station').on('change', createTable)
 async function createTable () {
     console.log($("#Station").val())
 
-    if ($("#NYC").val() != "Station NULL") {
+    if ($("#NYC").val() != "NULL") {
         $("#userInput").show()
     }
     else {
@@ -59,7 +59,7 @@ async function createTable () {
     console.log(data);
 
     var table = document.createElement("table");
-    table.style.border = '1pix solid black';
+    table.style.border = '1px solid black';
 
     var header_row = document.createElement("tr");
     var th1 = document.createElement("th");
