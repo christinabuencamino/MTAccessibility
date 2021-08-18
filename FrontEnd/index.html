@@ -59,8 +59,8 @@
                 background-image:
                     linear-gradient(45deg,
                         transparent 45%,
-                        hsla(207, 69%, 74%, 1) 45%,
-                        hsla(207, 69%, 74%, 1) 55%,
+                        hsla(207, 65%, 24%, 1) 45%,
+                        hsla(207, 65%, 24%, 1) 55%,
                         transparent 0);
                 background-size: .05em .05em;
                 -webkit-background-clip: text;
@@ -80,8 +80,8 @@
             }
         </style>
 
-        <h3 style="height:66px;width:866px;" style="font-size:1.17em;" style="font-family: 'Righteous', serif;" style="color:rgb(41,120,181);">Everyone deserves proper access to efficient and accessible transport. Communicate with fellow New Yorkers to gain the best experience possible. Select your borough to view user-inputted comments on the status of local stations to better plan out your commute! You can also choose to add your own comments.</h3>
-        <br>
+        <h3 style="height:66px;width:866px;font-size:1.1em;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, serif;color:black;">Everyone deserves proper access to efficient and accessible transport. Communicate with fellow New Yorkers to gain the best experience possible. Select your borough to view user-inputted comments on the status of local stations to better plan out your commute! You can also choose to add your own comments.</h3>
+        <br><br>
     </center>
 </head>
 
@@ -89,8 +89,8 @@
     <center>
         <!-- dropdown menu #1: Borough -->
         <form>
-            <label>Select Borough:</label>
-            <select id="NYC">
+            <label style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Borough:</label>
+            <select id="NYC" class="NYC-Dropdown">
                 <option value="NULL"> Select... </option>
                 <option value="Brooklyn"> Brooklyn </option>
                 <option value="Queens"> Queens </option>
@@ -101,9 +101,9 @@
 
             <!--- Dropdown menu #2: Station (borough-specific stations will appear when borough is chosen; otherwise all are shown)-->
 
-            <label>Select Station:</label>
-            <select id="Station">
-                <option value="Station NULL">Select Station...</option>
+            <label style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Station:</label>
+            <select id="Station" class="Station-Dropdown">
+                <option value="Station NULL" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Station...</option>
                 <option value="Station 1">Station 1: Brooklyn</option>
                 <option value="Station 2">Station 2: Queens</option>
                 <option value="Station 3">Station 3: Manhattan</option>
@@ -111,6 +111,17 @@
                 <option value="Station 5">Station 5: Staten Island</option>
             </select>
         </form>
+
+        <style>
+        .NYC-Dropdown {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .Station-Dropdown {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        </style>
+
 
         <!-- User input box (only appears when station is chosen) -->
         <div id="userInput" style="display:none;">
