@@ -81,6 +81,7 @@ async function createTable () {
         row.appendChild(td1);
         row.appendChild(td2);
 
+        table.appendChild(header_row);
         table.appendChild(row); }
 
     var websiteTable = document.getElementById("websiteTable");
