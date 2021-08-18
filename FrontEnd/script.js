@@ -65,13 +65,13 @@ async function createTable () {
 
     var header_row = document.createElement("tr");
     var th1 = document.createElement("th");
-    th1.style.border = '1px solid black';
+
     th1.style.textAlign = "center";
 
     var th2 = document.createElement("th");
-    th2.style.border = '1px solid black';
+
     th1.style.textAlign = "center";
-    
+
     console.log(header_row);
 
     th1.innerHTML = "Station Name";
