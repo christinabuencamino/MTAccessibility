@@ -63,7 +63,10 @@ async function createTable () {
     for (var userInput of data) {
         var header_row = document.createElement("tr");
         var row = document.createElement("tr");
+        
+        console.log(header_row);
         console.log(row);
+
         var th1 = document.createElement("th");
         var th2 = document.createElement("th");
 
