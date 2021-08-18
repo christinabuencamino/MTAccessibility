@@ -59,9 +59,7 @@ async function createTable () {
     console.log(data);
 
     var table = document.createElement("table");
-
-    var tableHTML = "<style> table, th, td {border: 1px solic black; } </style>";
-    table.appendChild(tableHTML);
+    table.style.border = '1pix solid black';
 
     var header_row = document.createElement("tr");
     var th1 = document.createElement("th");
