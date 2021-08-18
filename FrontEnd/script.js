@@ -43,7 +43,7 @@ $('#NYC').on('change', function () {
 /* Show/Hide input box if station is/isn't selected */
 // https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
 $('#Station').on('change', createTable)
-
+//https://www.w3schools.com/html/html_tables.asp
 async function createTable () {
     console.log($("#Station").val())
 
@@ -59,9 +59,14 @@ async function createTable () {
     console.log(data);
 
     var table = document.createElement("table");
+
+    var tableHTML = "<style> table, th, td {border: 1px solic black; } </style>";
+    table.appendChild(tableHTML);
+
     var header_row = document.createElement("tr");
     var th1 = document.createElement("th");
     var th2 = document.createElement("th");
+    console.log(header_row);
 
     th1.innerHTML = "Station Name";
     th2.innerHTML = "User Comment";
@@ -73,8 +78,6 @@ async function createTable () {
     for (var userInput of data) {
         
         var row = document.createElement("tr");
-
-        console.log(header_row);
         console.log(row);
 
         var td1 = document.createElement("td");
