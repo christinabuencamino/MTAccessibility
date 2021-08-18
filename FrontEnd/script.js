@@ -59,19 +59,23 @@ async function createTable () {
     console.log(data);
 
     var table = document.createElement("table");
+    var header_row = document.createElement("tr");
+    var th1 = document.createElement("th");
+    var th2 = document.createElement("th");
+
+    th1.innerHTML = "Station Name";
+    th2.innerHTML = "User Comment";
+
+    header_row.appendChild(th1);
+    header_row.appendChild(th2);
+    table.appendChild(header_row);
 
     for (var userInput of data) {
-        var header_row = document.createElement("tr");
-        var row = document.createElement("tr");
         
+        var row = document.createElement("tr");
+
         console.log(header_row);
         console.log(row);
-
-        var th1 = document.createElement("th");
-        var th2 = document.createElement("th");
-
-        th1.innerHTML = "Station Name";
-        th2.innerHTML = "User Comment";
 
         var td1 = document.createElement("td");
         var td2 = document.createElement("td");
@@ -79,12 +83,9 @@ async function createTable () {
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
 
-        header_row.appendChild(th1);
-        header_row.appendChild(th2);
         row.appendChild(td1);
         row.appendChild(td2);
 
-        table.appendChild(header_row);
         table.appendChild(row); }
 
     var websiteTable = document.getElementById("websiteTable");
