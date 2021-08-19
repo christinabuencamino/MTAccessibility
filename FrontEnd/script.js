@@ -40,20 +40,25 @@ $('#NYC').on('change', function () {
     }
 });
 
-/* Show/Hide input box if station is/isn't selected */
-// https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
-$('#NYC').on('change', createTable)
-
-//https://www.w3schools.com/html/html_tables.asp
-async function createTable () {
-    console.log($("#NYC").val())
-
-    if ($("#Station").val() != "NULL") {
+async function showInput () {
+    console.log($('#Station').val());
+    if ($("#Station").val() != "Station NULL") {
         $("#userInput").show()
     }
     else {
         $("#userInput").hide()
     }
+}
+
+
+/* Show/Hide input box if station is/isn't selected */
+// https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
+$('#NYC').on('change', createTable);
+$('#Station').on('change', showInput);
+
+//https://www.w3schools.com/html/html_tables.asp
+async function createTable () {
+    console.log($("#NYC").val())
 
     let resp = await fetch("/api/GetComments?NYC=" + $("#NYC").val());
     let data = await resp.json();
