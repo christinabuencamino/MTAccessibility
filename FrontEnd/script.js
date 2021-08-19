@@ -139,7 +139,7 @@ document.getElementById("add").onclick = async function () {
             NYC: $("#NYC").val(),
             station: $("#Station").val(),
             comment: $("#input").val(),
-            date: $("date").val(),
+            date: $("#date").val(),
         }),
         headers: {
             "content-type": "application/json"
