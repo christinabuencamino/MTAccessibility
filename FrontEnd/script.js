@@ -56,7 +56,7 @@ $('#NYC').on('change', function () {
 
 /* Only show comment/date input boxes if a Station is selected */
 // https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
-async function showInput () {
+async function showInput() {
     console.log($('#Station').val());
     if ($("#Station").val() != "Station NULL") {
         $("#userInput").show()
@@ -73,7 +73,7 @@ $('#NYC').on('change', createTable);
 
 /* Create the user comment table when borough is selected */
 //https://www.w3schools.com/html/html_tables.asp
-async function createTable () {
+async function createTable() {
     let resp = await fetch("/api/GetComments?NYC=" + $("#NYC").val());
     let data = await resp.json();
     console.log(data); //Fetch previous user comments from Cosmos DB and store in data
@@ -121,7 +121,7 @@ async function createTable () {
 
     //Insert station names/user comments/date posted into separate cells and rows using a for loop
     for (var userInput of data) {
-        
+
         var row = document.createElement("tr"); //create new row
         console.log(row);
 
@@ -154,20 +154,58 @@ async function createTable () {
         row.appendChild(td3);
 
         //Add new row to table; Loop again for next comment
-        table.appendChild(row); 
-        }
+        table.appendChild(row);
+    }
+
+    var officialTable = table.sortTable();
 
     //Call table ID in html file, and paste newly created table into the HTML slot
     var websiteTable = document.getElementById("websiteTable");
-    websiteTable.innerHTML = ""; 
-    websiteTable.appendChild(table);   
+    websiteTable.innerHTML = "";
+    websiteTable.appendChild(officialTable);
+}
+
+/* (Hopefully) Sort table by first column https://www.w3schools.com/howto/howto_js_sort_table.asp */
+async function sortTable() {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("table");
+    switching = true;
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("TD")[0];
+            y = rows[i + 1].getElementsByTagName("TD")[0];
+            // Check if the two rows should switch place:
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                // If so, mark as a switch and break the loop:
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
 }
 
 /*Adds user input to Cosmos DB by calling the SaveComment function; Collects station name, borough, comment, and date*/
 //https://stackoverflow.com/questions/19995927/adding-html-input-to-table 
 document.getElementById("add").onclick = async function () {
     console.log($('#Station').val())
-    let resp = await fetch("/api/SaveComment",{
+    let resp = await fetch("/api/SaveComment", {
         method: "POST",
         body: JSON.stringify({
             NYC: $("#NYC").val(),
@@ -178,7 +216,7 @@ document.getElementById("add").onclick = async function () {
         headers: {
             "content-type": "application/json"
         }
-    }) 
+    })
 
     console.log($("input").val())
 
