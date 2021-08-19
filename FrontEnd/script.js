@@ -61,6 +61,7 @@ async function createTable () {
 
     var table = document.createElement("table");
     table.style.padding = '4px';
+    table.style.tableLayout = 'fixed';
 
     var header_row = document.createElement("tr");
 
@@ -93,10 +94,12 @@ async function createTable () {
         var td1 = document.createElement("td");
         td1.style.padding = "5px";
         td1.style.border = "1 px solid black";
+        td1.style.wordWrap = "break-word";
 
         var td2 = document.createElement("td");
         td2.style.padding = "5px";
         td2.style.border = "1 px solid black";
+        td2.style.wordWrap = "break-word";
 
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
