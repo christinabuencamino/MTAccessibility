@@ -77,13 +77,21 @@ async function createTable () {
     th2.style.padding = "5px";
     th2.style.border = "1 px solid black";
 
+    var th3 = document.createElement("th");
+    th3.style.textAlign = "center";
+    th3.style.color = "hsla(207, 69%, 74%, 1)";
+    th3.style.padding = "5px";
+    th3.style.border = "1 px solid black";
+
     console.log(header_row);
 
     th1.innerHTML = "Station Name";
     th2.innerHTML = "User Comment";
+    th3.innerHTML = "Date Posted"
 
     header_row.appendChild(th1);
     header_row.appendChild(th2);
+    header_row.appendChild(th3);
     table.appendChild(header_row);
 
     for (var userInput of data) {
@@ -101,11 +109,18 @@ async function createTable () {
         td2.style.border = "1 px solid black";
         td2.style.whiteSpace = "normal";
 
+        var td3 = document.createElement("td");
+        td3.style.padding = "5px";
+        td3.style.border = "1 px solid black";
+        td3.style.whiteSpace = "normal";
+
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
+        td3.innerHTML = userInput.date;
 
         row.appendChild(td1);
         row.appendChild(td2);
+        row.appendChild(td3);
 
         table.appendChild(row); }
 
@@ -123,7 +138,8 @@ document.getElementById("add").onclick = async function () {
         body: JSON.stringify({
             NYC: $("#NYC").val(),
             station: $("#Station").val(),
-            comment: $("#input").val()
+            comment: $("#input").val(),
+            date: $("date").val(),
         }),
         headers: {
             "content-type": "application/json"
