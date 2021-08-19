@@ -157,7 +157,7 @@ async function createTable() {
         table.appendChild(row);
     }
 
-    var officialTable = table.sortTable();
+    sortTable();
 
     //Call table ID in html file, and paste newly created table into the HTML slot
     var websiteTable = document.getElementById("websiteTable");
