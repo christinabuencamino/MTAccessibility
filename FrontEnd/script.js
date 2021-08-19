@@ -25,15 +25,30 @@ $('#NYC').on('change', function () {
     console.log($('#NYC').val());
     $('#Station').html('');
     if ($('#NYC').val() == "Brooklyn") {
-        $('#Station').append('<option value="Station NULL">Select Station...</option><option value="Station 1">Station 1: Brooklyn</option>');
+        $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
+        for (station in listOfBrooklynStations) {
+            $('#Station').append('<option value="Brooklyn">' + listOfBrooklynStations[station] + '</option>');
+        }
     } else if ($('#NYC').val() == "Queens") {
-        $('#Station').append('<option value="Station NULL">Select Station...</option><option value="Station 2">Station 2: Queens</option>');
+        $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
+        for (station in listOfQueensStations) {
+            $('#Station').append('<option value="Queens">' + listOfQueensStations[station] + '</option>');
+        }
     } else if ($('#NYC').val() == "Manhattan") {
-        $('#Station').append('<option value="Station NULL">Select Station...</option><option value="Station 3">Station 3: Manhattan</option>');
+        $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
+        for (station in listOfManhattanStations) {
+            $('#Station').append('<option value="Manhattan">' + listOfManhattanStations[station] + '</option>');
+        }
     } else if ($('#NYC').val() == "Bronx") {
-        $('#Station').append('<option value="Station NULL">Select Station...</option><option value="Station 4">Station 4: Bronx</option>');
+        $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
+        for (station in listOfBronxStations) {
+            $('#Station').append('<option value="Bronx">' + listOfBronxStations[station] + '</option>');
+        }
     } else if ($('#NYC').val() == "Staten Island") {
-        $('#Station').append('<option value="Station NULL">Select Station...</option><option value="Station 5">Station 5: Staten Island</option>');
+        $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
+        for (station in listOfStatenIslandStations) {
+            $('#Station').append('<option value="Staten Island">' + listOfStatenIslandStations[station] + '</option>');
+        }
     } else {
         $('#Station').append('<option value="Station NULL">Select Station...</option><option value="NULL">Select...</option>');
     }
@@ -171,73 +186,17 @@ document.getElementById("add").onclick = async function () {
     await createTable();
 }
 
-/* List of SI stations */
-const listOfStatenIslandStations = [
-    {
-        station_name: 'St. George'
-    },
-    {
-        station_name: 'Tompkinsville'
-    },
-    {
-        station_name: 'Stapleton'
-    },
-    {
-        station_name: 'Clifton'
-    },
-    {
-        station_name: 'Grasmere'
-    },
-    {
-        station_name: 'Old Town'
-    },
-    {
-        station_name: 'Dongan Hills'
-    },
-    {
-        station_name: 'Jefferson Avenue'
-    },
-    {
-        station_name: 'Grant City'
-    },
-    {
-        station_name: 'New Dorp'
-    },
-    {
-        station_name: 'Oakwood Heights'
-    },
-    {
-        station_name: 'Bay Terrace'
-    },
-    {
-        station_name: 'Great Kills'
-    },
-    {
-        station_name: 'Eltingville'
-    },
-    {
-        station_name: 'Annadale'
-    },
-    {
-        station_name: 'Huguenot'
-    },
-    {
-        station_name: "Prince's Bay"
-    },
-    {
-        station_name: 'Pleasant Plains'
-    },
-    {
-        station_name: 'Richmond Valley'
-    },
-    {
-        station_name: 'Arthur Kill'
-    },
-    {
-        station_name: 'Tottenville'
-    },
-]
+const longlistOfBrooklynStations = "Fourth Avenue/Ninth Street station,Seventh Avenue station (BMT Brighton Line),Seventh Avenue station (IND Culver Line),Eighth Avenue station (BMT Sea Beach Line),Ninth Avenue station,15th Street–Prospect Park station,18th Avenue station (BMT Sea Beach Line),18th Avenue station (BMT West End Line),18th Avenue station (IND Culver Line),20th Avenue station (BMT Sea Beach Line),20th Avenue station (BMT West End Line),25th Avenue station,25th Street station (BMT Fourth Avenue Line),36th Street station (BMT Fourth Avenue Line),45th Street station (BMT Fourth Avenue Line),50th Street station (BMT West End Line),53rd Street station (BMT Fourth Avenue Line),55th Street station,59th Street station (BMT Fourth Avenue Line),71st Street station,75th Street–Elderts Lane station,77th Street station (BMT Fourth Avenue Line),79th Street station (BMT West End Line),86th Street station (BMT Fourth Avenue Line),86th Street station (BMT Sea Beach Line),Alabama Avenue station,Atlantic Avenue–Barclays Center station,Atlantic Avenue station (BMT Canarsie Line),Avenue H station,Avenue I station,Avenue J station,Avenue M station,Avenue N station,Avenue P station,Avenue U station (BMT Brighton Line),Avenue U station (BMT Sea Beach Line),Avenue U station (IND Culver Line),Avenue X station,Bay 50th Street station,Bay Parkway station (BMT Sea Beach Line),Bay Parkway station (BMT West End Line),Bay Parkway station (IND Culver Line),Bay Ridge–95th Street station,Bay Ridge Avenue station,Bedford Avenue station,Bedford–Nostrand Avenues station,Bergen Street station (IND Culver Line),Bergen Street station (IRT Eastern Parkway Line),Beverley Road station,Beverly Road station,Brighton Beach station (BMT Brighton Line),Broadway Junction station,Broadway station (IND Crosstown Line),Bushwick Avenue–Aberdeen Street station,Canarsie–Rockaway Parkway station,Carroll Street station,Central Avenue station (BMT Myrtle Avenue Line),Chauncey Street station,Church Avenue station (BMT Brighton Line),Church Avenue station (IND Culver Line),Church Avenue station (IRT Nostrand Avenue Line),Clark Street station,Classon Avenue station,Cleveland Street station,Clinton–Washington Avenues station (IND Crosstown Line),Clinton–Washington Avenues station (IND Fulton Street Line),Coney Island–Stillwell Avenue station,Cortelyou Road station,Borough Hall/Court Street station,Crescent Street station (BMT Jamaica Line),Crown Heights–Utica Avenue station,Cypress Hills station,DeKalb Avenue station (BMT Canarsie Line),DeKalb Avenue station (BMT lines),Ditmas Avenue station,East 105th Street station,Eastern Parkway–Brooklyn Museum station,Euclid Avenue station (IND Fulton Street Line),Flatbush Avenue–Brooklyn College station,Flushing Avenue station (BMT Jamaica Line),Flushing Avenue station (IND Crosstown Line),Fort Hamilton Parkway station (BMT Sea Beach Line),Fort Hamilton Parkway station (BMT West End Line),Fort Hamilton Parkway station (IND Culver Line),Franklin Avenue/Botanic Garden station,Franklin Avenue–Fulton Street station,Fulton Street station (IND Crosstown Line),Gates Avenue station,Graham Avenue station,Grand Army Plaza station,Grand Street station (BMT Canarsie Line),Grant Avenue station (IND Fulton Street Line),Greenpoint Avenue station,Halsey Street station (BMT Canarsie Line),Halsey Street station (BMT Jamaica Line),Hewes Street station,High Street station (IND Eighth Avenue Line),Hoyt Street station,Hoyt–Schermerhorn Streets station,Jay Street–MetroTech station,Jefferson Street station,Junius Street station,Kings Highway station (BMT Brighton Line),Kings Highway station (BMT Sea Beach Line),Kings Highway station (IND Culver Line),Kingston Avenue station,Kingston–Throop Avenues station,Knickerbocker Avenue station,Kosciuszko Street station,Lafayette Avenue station (IND Fulton Street Line),Liberty Avenue station,Livonia Avenue station,Metropolitan Avenue/Lorimer Street station,Lorimer Street station (BMT Jamaica Line),Marcy Avenue station,Montrose Avenue station,Morgan Avenue station,Myrtle Avenue station (BMT Jamaica Line),Myrtle–Willoughby Avenues station,Myrtle–Wyckoff Avenues station,Nassau Avenue station,Neck Road station,Neptune Avenue station,Nevins Street station,New Lots Avenue station (BMT Canarsie Line),New Lots Avenue station (IRT New Lots Line),62nd Street/New Utrecht Avenue station,Newkirk Avenue station,Newkirk Plaza station,Norwood Avenue station,Nostrand Avenue station (IND Fulton Street Line),Nostrand Avenue station (IRT Eastern Parkway Line),Ocean Parkway station,Park Place station (BMT Franklin Avenue Line),Parkside Avenue station,Pennsylvania Avenue station (IRT New Lots Line),President Street–Medgar Evers College station,Prospect Avenue station (BMT Fourth Avenue Line),Prospect Park station (BMT lines),Ralph Avenue station (IND Fulton Street Line),Rockaway Avenue station (IND Fulton Street Line),Rockaway Avenue station (IRT New Lots Line),Saratoga Avenue station (IRT New Lots Line),Sheepshead Bay station,Shepherd Avenue station,Smith–Ninth Streets station,Sterling Street station,Sutter Avenue–Rutland Road station,Sutter Avenue station,Union Street station (BMT Fourth Avenue Line),Utica Avenue station,Van Siclen Avenue station (BMT Jamaica Line),Van Siclen Avenue station (IND Fulton Street Line),Van Siclen Avenue station (IRT New Lots Line),West Eighth Street–New York Aquarium station,Wilson Avenue station,Winthrop Street station,York Street station (IND Sixth Avenue Line)";
+const listOfBrooklynStations = longlistOfBrooklynStations.split(",");
 
+const longlistOfManhattanStations = "First Avenue station (BMT Canarsie Line),Second Avenue station,Third Avenue station (BMT Canarsie Line),Seventh Avenue station (IND lines),Eighth Street–New York University station,14th Street/Eighth Avenue station,14th Street/Sixth Avenue station,14th Street–Union Square station,18th Street station (IRT Broadway–Seventh Avenue Line),23rd Street station (BMT Broadway Line),23rd Street station (IND Eighth Avenue Line),23rd Street station (IND Sixth Avenue Line),23rd Street station (IRT Broadway–Seventh Avenue Line),23rd Street station (IRT Lexington Avenue Line),28th Street station (BMT Broadway Line),28th Street station (IRT Broadway–Seventh Avenue Line),28th Street station (IRT Lexington Avenue Line),33rd Street station (IRT Lexington Avenue Line),34th Street–Penn Station (IND Eighth Avenue Line),34th Street–Penn Station (IRT Broadway–Seventh Avenue Line),34th Street–Herald Square station,34th Street–Hudson Yards station,42nd Street–Bryant Park/Fifth Avenue station,47th–50th Streets–Rockefeller Center station,49th Street station (BMT Broadway Line),50th Street station (IND lines),50th Street station (IRT Broadway–Seventh Avenue Line),57th Street–Seventh Avenue station,57th Street station (IND Sixth Avenue Line),59th Street–Columbus Circle station,66th Street–Lincoln Center station,68th Street–Hunter College station,72nd Street station (IND Eighth Avenue Line),72nd Street station (IRT Broadway–Seventh Avenue Line),72nd Street station (Second Avenue Subway),77th Street station (IRT Lexington Avenue Line),79th Street station (IRT Broadway–Seventh Avenue Line),81st Street–Museum of Natural History station,86th Street station (IND Eighth Avenue Line),86th Street station (IRT Broadway–Seventh Avenue Line),86th Street station (IRT Lexington Avenue Line),86th Street station (Second Avenue Subway),96th Street station (IND Eighth Avenue Line),96th Street station (IRT Broadway–Seventh Avenue Line),96th Street station (IRT Lexington Avenue Line),96th Street station (Second Avenue Subway),103rd Street station (IND Eighth Avenue Line),103rd Street station (IRT Broadway–Seventh Avenue Line),103rd Street station (IRT Lexington Avenue Line),110th Street station (IRT Lexington Avenue Line),116th Street–Columbia University station,116th Street station (IND Eighth Avenue Line),116th Street station (IRT Lenox Avenue Line),116th Street station (IRT Lexington Avenue Line),125th Street station (IND Eighth Avenue Line),125th Street station (IRT Broadway–Seventh Avenue Line),125th Street station (IRT Lenox Avenue Line),125th Street station (IRT Lexington Avenue Line),135th Street station (IND Eighth Avenue Line),135th Street station (IRT Lenox Avenue Line),137th Street–City College station,145th Street station (IND lines),145th Street station (IRT Broadway–Seventh Avenue Line),145th Street station (IRT Lenox Avenue Line),155th Street station (IND Concourse Line),155th Street station (IND Eighth Avenue Line),157th Street station,163rd Street–Amsterdam Avenue station,168th Street station (New York City Subway),175th Street station (IND Eighth Avenue Line),181st Street station (IND Eighth Avenue Line),181st Street station (IRT Broadway–Seventh Avenue Line),190th Street station,191st Street station,207th Street station,215th Street station,Astor Place station,Broadway–Lafayette Street/Bleecker Street station,Bowery station,Bowling Green station,Broad Street station (BMT Nassau Street Line),Brooklyn Bridge–City Hall/Chambers Street station,Canal Street station (IRT Broadway–Seventh Avenue Line),Canal Street station (IND Eighth Avenue Line),Canal Street station (New York City Subway),Cathedral Parkway–110th Street station (IND Eighth Avenue Line),Cathedral Parkway–110th Street station (IRT Broadway–Seventh Avenue Line),Central Park North–110th Street station,Chambers Street station (IRT Broadway–Seventh Avenue Line),Chambers Street–World Trade Center/Park Place/Cortlandt Street station,Christopher Street–Sheridan Square station,City Hall station (BMT Broadway Line),Delancey Street/Essex Street station,Dyckman Street station (IRT Broadway–Seventh Avenue Line),Dyckman Street station (IND Eighth Avenue Line),East Broadway station,Fifth Avenue–59th Street station,Fifth Avenue/53rd Street station,Franklin Street station (IRT Broadway–Seventh Avenue Line),Fulton Street station (New York City Subway),Grand Central–42nd Street station,Grand Street station (IND Sixth Avenue Line),Harlem–148th Street station,Houston Street station (IRT Broadway–Seventh Avenue Line),Inwood–207th Street station,Lexington Avenue/59th Street station,Lexington Avenue/51st Street station,Lexington Avenue–63rd Street station,Marble Hill–225th Street station,Prince Street station,Rector Street station (IRT Broadway–Seventh Avenue Line),Rector Street station (BMT Broadway Line),Roosevelt Island station,South Ferry/Whitehall Street station,Spring Street station (IND Eighth Avenue Line),Spring Street station (IRT Lexington Avenue Line),Times Square–42nd Street/Port Authority Bus Terminal station,Wall Street station (IRT Broadway–Seventh Avenue Line),Wall Street station (IRT Lexington Avenue Line),West Fourth Street–Washington Square station,WTC Cortlandt station";
+const listOfManhattanStations = longlistOfManhattanStations.split(",");
 
+const longlistOfQueensStations = "21st Street–Queensbridge station,21st Street station (IND Crosstown Line),30th Avenue station,33rd Street–Rawson Street station,36th Avenue station,36th Street station (IND Queens Boulevard Line),39th Avenue station (BMT Astoria Line),40th Street–Lowery Street station,46th Street–Bliss Street station,46th Street station (IND Queens Boulevard Line),52nd Street station (IRT Flushing Line),61st Street–Woodside station,63rd Drive–Rego Park station,65th Street station (IND Queens Boulevard Line),67th Avenue station,69th Street station (IRT Flushing Line),75th Avenue station,75th Street–Elderts Lane station,80th Street station (IND Fulton Street Line),82nd Street–Jackson Heights station,85th Street–Forest Parkway station,88th Street station,90th Street–Elmhurst Avenue station,103rd Street–Corona Plaza station,104th Street station (BMT Jamaica Line),104th Street station (IND Fulton Street Line),111th Street station (BMT Jamaica Line),111th Street station (IRT Flushing Line),111th Street station (IND Fulton Street Line),121st Street station (BMT Jamaica Line),169th Street station (IND Queens Boulevard Line),Aqueduct–North Conduit Avenue station,Aqueduct Racetrack station,Astoria–Ditmars Boulevard station,Astoria Boulevard station,Beach 25th Street station,Beach 36th Street station,Beach 44th Street station,Beach 60th Street station,Beach 67th Street station,Beach 90th Street station,Beach 98th Street station,Beach 105th Street station,Briarwood station,Broad Channel station,Broadway station (BMT Astoria Line),Court Square–23rd Street station,Elmhurst Avenue station,Far Rockaway–Mott Avenue station,Flushing–Main Street station (IRT Flushing Line),Forest Avenue station,Forest Hills–71st Avenue station,Fresh Pond Road station,Grand Avenue–Newtown station,Halsey Street station (BMT Canarsie Line),Howard Beach–JFK Airport station,Hunters Point Avenue station,Jamaica–179th Street station,Jamaica–Van Wyck station,Jamaica Center–Parsons/Archer station,Junction Boulevard station,Kew Gardens–Union Turnpike station,Mets–Willets Point station (IRT Flushing Line),Middle Village–Metropolitan Avenue station,Myrtle–Wyckoff Avenues station,Northern Boulevard station,Ozone Park–Lefferts Boulevard station,Parsons Boulevard station,Queens Plaza station,Queensboro Plaza station,Rockaway Boulevard station,Jackson Heights–Roosevelt Avenue/74th Street station,Seneca Avenue station,Steinway Street station,Sutphin Boulevard–Archer Avenue–JFK Airport station,Sutphin Boulevard station (IND Queens Boulevard Line),Vernon Boulevard–Jackson Avenue station,Woodhaven Boulevard station (BMT Jamaica Line),Woodhaven Boulevard station (IND Queens Boulevard Line)";
+const listOfQueensStations = longlistOfQueensStations.split(",");
 
+const longlistOfBronxStations = "Third Avenue–138th Street station,Third Avenue–149th Street station,138th Street–Grand Concourse station,149th Street–Grand Concourse station,161st Street–Yankee Stadium station,167th Street station (IND Concourse Line),167th Street station (IRT Jerome Avenue Line),170th Street station (IND Concourse Line),170th Street station (IRT Jerome Avenue Line),174th Street station (IRT White Plains Road Line),174th–175th Streets station,176th Street station,182nd–183rd Streets station,183rd Street station (IRT Jerome Avenue Line),219th Street station,225th Street station,231st Street station,233rd Street station,238th Street station,Allerton Avenue station,Baychester Avenue station,Bedford Park Boulevard–Lehman College station,Bedford Park Boulevard station,Bronx Park East station,Brook Avenue station,Buhre Avenue station,Burke Avenue station,Burnside Avenue station,Castle Hill Avenue station,Cypress Avenue station,East 143rd Street–St. Mary's Street station,East 149th Street station,East 180th Street station,Eastchester–Dyre Avenue station,Elder Avenue station,Fordham Road station (IND Concourse Line),Fordham Road station (IRT Jerome Avenue Line),Freeman Street station,Gun Hill Road station (IRT Dyre Avenue Line),Gun Hill Road station (IRT White Plains Road Line),Hunts Point Avenue station,Intervale Avenue station,Jackson Avenue station (IRT White Plains Road Line),Kingsbridge Road station (IND Concourse Line),Kingsbridge Road station (IRT Jerome Avenue Line),Longwood Avenue station,Middletown Road station,Morris Park station,Morrison Avenue–Soundview station,Mosholu Parkway station,Mount Eden Avenue station,Nereid Avenue station,Norwood–205th Street station,Parkchester station,Pelham Bay Park station,Pelham Parkway station (IRT Dyre Avenue Line),Pelham Parkway station (IRT White Plains Road Line),Prospect Avenue station (IRT White Plains Road Line),Simpson Street station,St. Lawrence Avenue station,Tremont Avenue station,Van Cortlandt Park–242nd Street station,Wakefield–241st Street station,West Farms Square–East Tremont Avenue station,Westchester Square–East Tremont Avenue station,Whitlock Avenue station,Woodlawn station (IRT Jerome Avenue Line),Zerega Avenue station";
+const listOfBronxStations = longlistOfBronxStations.split(",");
 
+const longlistOfStatenIslandStations = "Annadale station,Arthur Kill station,Bay Terrace station,Clifton station,Dongan Hills station,Eltingville station,Grant City station,Grasmere station,Great Kills station,Huguenot station,Jefferson Avenue station,New Dorp station,Oakwood Heights station,Old Town station,Pleasant Plains station,Prince's Bay station,Richmond Valley station,St. George Terminal,Stapleton station,Tompkinsville station,Tottenville station";
+const listOfStatenIslandStations = longlistOfStatenIslandStations.split(",");
