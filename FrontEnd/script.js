@@ -45,7 +45,7 @@ $('#NYC').on('change', function () {
 $('#NYC').on('change', createTable)
 //https://www.w3schools.com/html/html_tables.asp
 async function createTable () {
-    console.log($("#Station").val())
+    console.log($("#NYC").val())
 
     if ($("#NYC").val() != "NULL") {
         $("#userInput").show()
@@ -54,13 +54,12 @@ async function createTable () {
         $("#userInput").hide()
     }
 
-    let resp = await fetch("/api/GetComments?station=" + $("#Station").val());
+    let resp = await fetch("/api/GetComments?NYC=" + $("#NYC").val());
     let data = await resp.json();
     console.log(data);
 
     var table = document.createElement("table");
     table.style.padding = '4px';
-    table.cellPadding
 
     var header_row = document.createElement("tr");
 
@@ -118,6 +117,7 @@ document.getElementById("add").onclick = async function () {
     let resp = await fetch("/api/SaveComment",{
         method: "POST",
         body: JSON.stringify({
+            NYC: $("NYC").val(),
             station: $("#Station").val(),
             comment: $("#input").val()
         }),
