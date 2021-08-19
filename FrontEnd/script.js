@@ -48,7 +48,7 @@ $('#NYC').on('change', createTable)
 async function createTable () {
     console.log($("#NYC").val())
 
-    if ($("#NYC").val() != "NULL") {
+    if ($("#Station").val() != "NULL") {
         $("#userInput").show()
     }
     else {
