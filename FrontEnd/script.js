@@ -42,7 +42,7 @@ $('#NYC').on('change', function () {
 
 /* Show/Hide input box if station is/isn't selected */
 // https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
-$('#Station').on('change', createTable)
+$('#NYC').on('change', createTable)
 //https://www.w3schools.com/html/html_tables.asp
 async function createTable () {
     console.log($("#Station").val())
