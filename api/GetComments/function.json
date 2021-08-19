@@ -23,7 +23,7 @@
       "collectionName": "user input",
       "connectionStringSetting": "mtaccessibility_DOCUMENTDB",
       "partitionKey": "id",
-      "sqlQuery": "select * from c where c.station={station}"
+      "sqlQuery": "select * from c where c.NYC={NYC}"
     }
   ]
 }
