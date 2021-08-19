@@ -27,27 +27,27 @@ $('#NYC').on('change', function () {
     if ($('#NYC').val() == "Brooklyn") {
         $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
         for (station in listOfBrooklynStations) {
-            $('#Station').append('<option value="Brooklyn">' + listOfBrooklynStations[station] + '</option>');
+            $('#Station').append('<option value="' + listOfBrooklynStations[station] + '">' + listOfBrooklynStations[station] + '</option>');
         }
     } else if ($('#NYC').val() == "Queens") {
         $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
         for (station in listOfQueensStations) {
-            $('#Station').append('<option value="Queens">' + listOfQueensStations[station] + '</option>');
+            $('#Station').append('<option value="' + listOfQueensStations[station] + '">' + listOfQueensStations[station] + '</option>');
         }
     } else if ($('#NYC').val() == "Manhattan") {
         $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
         for (station in listOfManhattanStations) {
-            $('#Station').append('<option value="Manhattan">' + listOfManhattanStations[station] + '</option>');
+            $('#Station').append('<option value="' + listOfManhattanStations[station] + '">' + listOfManhattanStations[station] + '</option>');
         }
     } else if ($('#NYC').val() == "Bronx") {
         $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
         for (station in listOfBronxStations) {
-            $('#Station').append('<option value="Bronx">' + listOfBronxStations[station] + '</option>');
+            $('#Station').append('<option value="' + listOfBronxStations[station] + '">' + listOfBronxStations[station] + '</option>');
         }
     } else if ($('#NYC').val() == "Staten Island") {
         $('#Station').append('<option value="Station NULL">Select Station...</option>'); //Add placeholder text outside of loop
         for (station in listOfStatenIslandStations) {
-            $('#Station').append('<option value="Staten Island">' + listOfStatenIslandStations[station] + '</option>');
+            $('#Station').append('<option value="' + listOfStatenIslandStations[station] + '">' + listOfStatenIslandStations[station] + '</option>');
         }
     } else {
         $('#Station').append('<option value="Station NULL">Select Station...</option><option value="NULL">Select...</option>');
@@ -74,8 +74,6 @@ $('#NYC').on('change', createTable);
 /* Create the user comment table when borough is selected */
 //https://www.w3schools.com/html/html_tables.asp
 async function createTable () {
-    console.log($("#NYC").val())
-
     let resp = await fetch("/api/GetComments?NYC=" + $("#NYC").val());
     let data = await resp.json();
     console.log(data); //Fetch previous user comments from Cosmos DB and store in data
@@ -168,6 +166,7 @@ async function createTable () {
 /*Adds user input to Cosmos DB by calling the SaveComment function; Collects station name, borough, comment, and date*/
 //https://stackoverflow.com/questions/19995927/adding-html-input-to-table 
 document.getElementById("add").onclick = async function () {
+    console.log($('#Station').val())
     let resp = await fetch("/api/SaveComment",{
         method: "POST",
         body: JSON.stringify({
