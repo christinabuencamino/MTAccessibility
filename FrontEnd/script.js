@@ -1,7 +1,6 @@
-
-/* https://www.javatpoint.com/how-to-make-a-dropdown-menu-in-html */
-/* When the user clicks on the button,
+/* When the user clicks on any dropdown menu,
 toggle between hiding and showing the dropdown content */
+/* https://www.javatpoint.com/how-to-make-a-dropdown-menu-in-html */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -20,8 +19,8 @@ window.onclick = function (event) {
     }
 }
 
+/* Change the contents of Station dropdown depending on borough selection */
 // https://stackoverflow.com/questions/30671620/how-to-change-dropdowns-values-based-on-a-selection-of-another-dropdown-using-jq/30671798
-//Change the contents of Station dropdown depending on previous selection
 $('#NYC').on('change', function () {
     console.log($('#NYC').val());
     $('#Station').html('');
@@ -40,6 +39,8 @@ $('#NYC').on('change', function () {
     }
 });
 
+/* Only show comment/date input boxes if a Station is selected */
+// https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
 async function showInput () {
     console.log($('#Station').val());
     if ($("#Station").val() != "Station NULL") {
@@ -50,26 +51,27 @@ async function showInput () {
     }
 }
 
-
-/* Show/Hide input box if station is/isn't selected */
-// https://stackoverflow.com/questions/15566999/how-to-show-form-input-fields-based-on-select-value?noredirect=1&lq=1
-$('#NYC').on('change', createTable);
 $('#Station').on('change', showInput);
 
+/* When a borough is selected, call the creation of the user comment table  */
+$('#NYC').on('change', createTable);
+
+/* Create the user comment table when borough is selected */
 //https://www.w3schools.com/html/html_tables.asp
 async function createTable () {
     console.log($("#NYC").val())
 
     let resp = await fetch("/api/GetComments?NYC=" + $("#NYC").val());
     let data = await resp.json();
-    console.log(data);
+    console.log(data); //Fetch previous user comments from Cosmos DB and store in data
 
     var table = document.createElement("table");
     table.style.padding = '4px';
-    table.style.tableLayout = 'fixed';
+    table.style.tableLayout = 'fixed'; //Create a new table with added CSS
 
-    var header_row = document.createElement("tr");
+    var header_row = document.createElement("tr"); //Create header row
 
+    /* Create three headers with specific CSS; Station Name, User Comment, Date Posted */
     var th1 = document.createElement("th");
     th1.style.textAlign = "center";
     th1.style.color = "hsla(207, 69%, 74%, 1)";
@@ -93,56 +95,63 @@ async function createTable () {
 
     console.log(header_row);
 
+    //Set names of all three headers
     th1.innerHTML = "Station Name";
     th2.innerHTML = "User Comment";
     th3.innerHTML = "Date Posted"
 
+    //Add cells to header row, and then to the table
     header_row.appendChild(th1);
     header_row.appendChild(th2);
     header_row.appendChild(th3);
     table.appendChild(header_row);
 
+    //Insert station names/user comments/date posted into separate cells and rows using a for loop
     for (var userInput of data) {
         
-        var row = document.createElement("tr");
+        var row = document.createElement("tr"); //create new row
         console.log(row);
 
-        var td1 = document.createElement("td");
+        var td1 = document.createElement("td"); //create new cell for station name
         td1.style.padding = "5px";
         td1.style.border = "1 px solid black";
         td1.style.whiteSpace = "normal";
         td1.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
-        var td2 = document.createElement("td");
+        var td2 = document.createElement("td"); //create new cell for user comment
         td2.style.padding = "5px";
         td2.style.border = "1 px solid black";
         td2.style.whiteSpace = "normal";
         td2.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
-        var td3 = document.createElement("td");
+        var td3 = document.createElement("td"); //create new cell for date posted
         td3.style.padding = "5px";
         td3.style.border = "1 px solid black";
         td3.style.whiteSpace = "normal";
         td3.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
+        //Insert data into appropriate cells
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
         td3.innerHTML = userInput.date;
 
+        //Add new cells to the new row
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
 
-        table.appendChild(row); }
+        //Add new row to table; Loop again for next comment
+        table.appendChild(row); 
+        }
 
+    //Call table ID in html file, and paste newly created table into the HTML slot
     var websiteTable = document.getElementById("websiteTable");
     websiteTable.innerHTML = ""; 
     websiteTable.appendChild(table);   
 }
 
-/* Add user input to table that shows Station Name and User Input (not yet connected to Cosmos, does not save input) */
+/*Adds user input to Cosmos DB by calling the SaveComment function; Collects station name, borough, comment, and date*/
 //https://stackoverflow.com/questions/19995927/adding-html-input-to-table 
-
 document.getElementById("add").onclick = async function () {
     let resp = await fetch("/api/SaveComment",{
         method: "POST",
@@ -161,8 +170,6 @@ document.getElementById("add").onclick = async function () {
 
     await createTable();
 }
-
-
 
 /* List of SI stations */
 const listOfStatenIslandStations = [

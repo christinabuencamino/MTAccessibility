@@ -12,9 +12,11 @@
             <img src="metro-icon-11.jpg" alt="Metro Icon" style="width:100px;height:100px;">
         </h1>
 
-        <h2 data-shadow='MTAccessibility'>MTAccessibility</h2><br>
+        <h2 data-shadow='MTAccessibility'>MTAccessibility</h2>
+        
+        <br>
 
-        <!-- Styling for MTAccessibility Title -->
+        <!-- Styling for MTAccessibility Title, including animation (https://codepen.io/carpenumidium/pen/hHjEJ by carpe numidium) -->
         <style>
             @import url(https://fonts.googleapis.com/css?family=Righteous);
 
@@ -79,8 +81,13 @@
                 }
             }
         </style>
+
+        <!-- Author title -->
         <label style="font-size:1em;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, serif;color:black;">By Christina Buencamino | Bit Project 2021</label><br>
+
         <br>
+
+        <!-- Short description of website -->
         <h3 style="color: hsla(207, 69%, 74%, 1);height:66px;width:866px;font-size:1.1em;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, serif;color:black;">Communicate with fellow New Yorkers on subway station issues/delays/statuses. Select your borough to view user comments in your area. Select a station to add your own comment.</h3>
         
     </center>
@@ -88,7 +95,7 @@
 
 <body>
     <center>
-        <!-- dropdown menu #1: Borough -->
+        <!-- Dropdown menu #1: Borough -->
         <form>
             <label style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Borough:</label>
             <select id="NYC" class="NYC-Dropdown">
@@ -100,8 +107,7 @@
                 <option value="Staten Island"> Staten Island </option>
             </select> <br><br>
 
-            <!--- Dropdown menu #2: Station (borough-specific stations will appear when borough is chosen; otherwise all are shown)-->
-
+        <!--- Dropdown menu #2: Station (borough-specific stations will appear when borough is chosen)-->
             <label style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Station:</label>
             <select id="Station" class="Station-Dropdown">
                 <option value="Station NULL" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Select Station...</option>
@@ -113,6 +119,7 @@
             </select>
         </form>
 
+        <!-- Styling for dropwdowns -->
         <style>
         .NYC-Dropdown {
             font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -135,21 +142,9 @@
             <input type='button' value='Submit' id='add' style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;" />
 
             <br><br>
-            <!-- command + / to comment multiple lines out
-        <table id="table">
-            <tr>
-                <th> Station Name </th>
-                <th> User Comment </th>
-            </tr>
-        </table> -->
 
-            <!-- <style>
-            table, th, td {
-                border: 1px solid black;
-            }
-        </style> -->
-
-            <div id="websiteTable"></div>
+        <!-- Placeholder div for createTable in .js to place table with user comments -->
+        <div id="websiteTable"></div>
     </center>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
