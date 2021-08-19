@@ -75,18 +75,21 @@ async function createTable () {
     th1.style.color = "hsla(207, 69%, 74%, 1)";
     th1.style.padding = "5px";
     th1.style.border = "1 px solid black";
+    th1.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
     var th2 = document.createElement("th");
     th2.style.textAlign = "center";
     th2.style.color = "hsla(207, 69%, 74%, 1)";
     th2.style.padding = "5px";
     th2.style.border = "1 px solid black";
+    th2.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
     var th3 = document.createElement("th");
     th3.style.textAlign = "center";
     th3.style.color = "hsla(207, 69%, 74%, 1)";
     th3.style.padding = "5px";
     th3.style.border = "1 px solid black";
+    th3.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
     console.log(header_row);
 
@@ -108,16 +111,19 @@ async function createTable () {
         td1.style.padding = "5px";
         td1.style.border = "1 px solid black";
         td1.style.whiteSpace = "normal";
+        td1.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
         var td2 = document.createElement("td");
         td2.style.padding = "5px";
         td2.style.border = "1 px solid black";
         td2.style.whiteSpace = "normal";
+        td2.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
         var td3 = document.createElement("td");
         td3.style.padding = "5px";
         td3.style.border = "1 px solid black";
         td3.style.whiteSpace = "normal";
+        td3.style.fontFamily = "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
 
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
