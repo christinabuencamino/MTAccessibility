@@ -126,6 +126,8 @@ document.getElementById("add").onclick = async function () {
         }
     }) 
 
+    console.log($("input").val())
+
     await createTable();
 }
 
