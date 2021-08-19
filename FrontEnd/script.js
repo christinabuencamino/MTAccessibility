@@ -59,18 +59,22 @@ async function createTable () {
     console.log(data);
 
     var table = document.createElement("table");
-    table.style.border = '1px solid black';
     table.style.padding = '4px';
+    table.cellPadding
 
     var header_row = document.createElement("tr");
 
     var th1 = document.createElement("th");
     th1.style.textAlign = "center";
     th1.style.color = "hsla(207, 69%, 74%, 1)";
+    th1.style.padding = "5px";
+    th1.style.border = "1 px solid black";
 
     var th2 = document.createElement("th");
     th2.style.textAlign = "center";
     th2.style.color = "hsla(207, 69%, 74%, 1)";
+    th2.style.padding = "5px";
+    th2.style.border = "1 px solid black";
 
     console.log(header_row);
 
@@ -87,7 +91,12 @@ async function createTable () {
         console.log(row);
 
         var td1 = document.createElement("td");
+        td1.style.padding = "5px";
+        td1.style.border = "1 px solid black";
+
         var td2 = document.createElement("td");
+        td2.style.padding = "5px";
+        td2.style.border = "1 px solid black";
 
         td1.innerHTML = userInput.station;
         td2.innerHTML = userInput.comment;
