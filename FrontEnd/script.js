@@ -66,6 +66,7 @@ async function showInput() {
     }
 }
 
+/* Calls showInput when the station is chosen */
 $('#Station').on('change', showInput);
 
 /* When a borough is selected, call the creation of the user comment table  */
